@@ -2,7 +2,7 @@ package mba.usp.distributed.architecture.ingestion_service.messaging;
 
 
 import mba.usp.distributed.architecture.ingestion_service.config.RabbitMQConfig;
-import mba.usp.distributed.architecture.ingestion_service.model.SensorData;
+import mba.usp.distributed.architecture.ingestion_service.dtos.SensorData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 

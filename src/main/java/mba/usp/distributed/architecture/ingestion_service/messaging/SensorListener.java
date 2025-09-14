@@ -1,11 +1,9 @@
 package mba.usp.distributed.architecture.ingestion_service.messaging;
 
-import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.Timer;
 import jakarta.annotation.PostConstruct;
-import mba.usp.distributed.architecture.ingestion_service.service.SensorRawDataProcessor;
+import mba.usp.distributed.architecture.ingestion_service.services.SensorRawDataProcessor;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.springframework.stereotype.Service;
 

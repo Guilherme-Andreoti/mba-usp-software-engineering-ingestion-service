@@ -2,7 +2,7 @@ package mba.usp.distributed.architecture.ingestion_service.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import mba.usp.distributed.architecture.ingestion_service.model.SensorData;
+import mba.usp.distributed.architecture.ingestion_service.dtos.SensorData;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.Binding;

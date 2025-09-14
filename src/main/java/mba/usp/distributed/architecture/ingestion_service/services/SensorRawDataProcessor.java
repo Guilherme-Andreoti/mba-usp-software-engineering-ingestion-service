@@ -1,10 +1,9 @@
-package mba.usp.distributed.architecture.ingestion_service.service;
+package mba.usp.distributed.architecture.ingestion_service.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.micrometer.core.annotation.Timed;
 import mba.usp.distributed.architecture.ingestion_service.messaging.SensorDataPublisher;
-import mba.usp.distributed.architecture.ingestion_service.model.SensorData;
+import mba.usp.distributed.architecture.ingestion_service.dtos.SensorData;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +20,8 @@ public class SensorRawDataProcessor {
         this.sensorDataPublisher = sensorDataPublisher;
     }
 
-    @Timed(
-            value = "iot.processing",
-            description = "Tempo de processamento",
-            extraTags = {"service", "ingestion-service"}
-    )
     public void handleMessage(String topic, MqttMessage message) {
+        long currentTimestamp = System.currentTimeMillis();
         try {
             String payload = new String(message.getPayload(), StandardCharsets.UTF_8);
             if (payload.isBlank()) {
@@ -36,6 +31,7 @@ public class SensorRawDataProcessor {
 
             SensorData sensorData = objectMapper.readValue(payload, SensorData.class);
             sensorData.setTopic(topic);
+            sensorData.setStartProcessingTimestamp(currentTimestamp);
 
             sensorDataPublisher.publish(sensorData);
 

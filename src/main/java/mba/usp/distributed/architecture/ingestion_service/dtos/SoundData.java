@@ -1,4 +1,4 @@
-package mba.usp.distributed.architecture.ingestion_service.model;
+package mba.usp.distributed.architecture.ingestion_service.dtos;
 
 public class SoundData {
     private double high;

@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MqttConfig {
 
-    private static final String BROKER_URL = "tcp://host.docker.internal:1883"; // ou IP do Mosquitto
-    private static final String CLIENT_ID = "springboot-client";
+    private static final String BROKER_URL = "tcp://host.docker.internal:1883";
+    private static final String CLIENT_ID = "ingestion-service-client";
 
     public MqttConfig() {
         System.out.println("Iniciando MqttConfig...");

@@ -1,4 +1,4 @@
-package mba.usp.distributed.architecture.ingestion_service.model;
+package mba.usp.distributed.architecture.ingestion_service.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +21,7 @@ public class SensorData {
     private double temperature;
     private SoundData sound;
     private String topic;
+    private long startProcessingTimestamp;
 
     public SensorData() {
 
@@ -81,10 +82,18 @@ public class SensorData {
         this.topic = topic;
     }
 
+    public void setStartProcessingTimestamp(long startProcessingTimestamp) {
+        this.startProcessingTimestamp = startProcessingTimestamp;
+    }
+
     public String getTopic() {return topic;}
 
 
     public SoundData getSound() {
         return sound;
+    }
+
+    public long getStartProcessingTimestamp() {
+        return startProcessingTimestamp;
     }
 }
