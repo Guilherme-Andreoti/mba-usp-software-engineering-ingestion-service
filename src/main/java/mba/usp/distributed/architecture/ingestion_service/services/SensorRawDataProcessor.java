@@ -21,7 +21,7 @@ public class SensorRawDataProcessor {
     }
 
     public void handleMessage(String topic, MqttMessage message) {
-        long currentTimestamp = System.currentTimeMillis();
+        //long currentTimestamp = System.currentTimeMillis();
         try {
             String payload = new String(message.getPayload(), StandardCharsets.UTF_8);
             if (payload.isBlank()) {
@@ -31,7 +31,7 @@ public class SensorRawDataProcessor {
 
             SensorData sensorData = objectMapper.readValue(payload, SensorData.class);
             sensorData.setTopic(topic);
-            sensorData.setStartProcessingTimestamp(currentTimestamp);
+            //sensorData.setStartProcessingTimestamp(currentTimestamp);
 
             sensorDataPublisher.publish(sensorData);
 
